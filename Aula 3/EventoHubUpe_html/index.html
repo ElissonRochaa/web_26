@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventoHub UPE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="brand-area">
+                <h1>Evento<span>Hub</span> UPE</h1>
+                <p>Olá, Maria Eduarda — veja o que está rolando nos campi.</p>
+            </div>
+
+            <nav class="main-menu">
+                <button class="menu-item active" id="menuEventos">Eventos</button>
+                <button class="menu-item" id="menuInscricoes">Minhas inscrições</button>
+                <button class="logout">Sair</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="eventosSection">
+            <div class="filters">
+                <button class="filter active" data-campus="Todos">Todos os campi</button>
+                <button class="filter" data-campus="Recife">Recife</button>
+                <button class="filter" data-campus="Garanhuns">Garanhuns</button>
+            </div>
+
+            <div id="eventsList" class="events-list"></div>
+        </section>
+
+        <section id="inscricoesSection" class="hidden">
+            <div class="section-title">
+                <h2>Minhas inscrições</h2>
+                <p>Confira os eventos em que você está inscrita.</p>
+            </div>
+            <div id="inscricoesList" class="events-list"></div>
+        </section>
+    </main>
+
+    <div id="eventModal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-card">
+            <button class="close-modal" id="closeModal" aria-label="Fechar">×</button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
