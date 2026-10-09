@@ -30,6 +30,5 @@ public class Usuario {
     private Perfil perfil;
     @OneToMany(mappedBy = "organizador")
     List<Evento> eventosOrganizados;
-    List<Inscricao> minhasInscricoes;
 
 }

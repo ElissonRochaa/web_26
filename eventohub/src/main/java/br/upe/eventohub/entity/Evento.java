@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @Entity
 @Table(name = "evento")
@@ -27,13 +28,21 @@ public class Evento {
     private String descricao;
     private LocalDate data;
     private LocalTime hora;
-    private String local;
+    @OneToOne
+    private Endereco local;
     private int capacidade_max;
     @Enumerated(EnumType.STRING)
     private TipoEvento tipoEvento;
     @ManyToOne
     @JoinColumn(name = "id_organizador")
     private Usuario organizador;
+    @ManyToMany
+    @JoinTable(
+            name = "evento_categoria",
+            joinColumns = @JoinColumn(name = "id_evento"),
+            inverseJoinColumns = @JoinColumn(name = "id_categoria")
+    )
+    private List<Categoria> categorias;
 
 
 }
