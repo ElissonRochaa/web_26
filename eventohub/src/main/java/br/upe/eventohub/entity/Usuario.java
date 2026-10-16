@@ -1,5 +1,6 @@
 package br.upe.eventohub.entity;
 
+import br.upe.eventohub.dtos.UsuarioRequestDTO;
 import br.upe.eventohub.entity.enums.Perfil;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -30,5 +31,13 @@ public class Usuario {
     private Perfil perfil;
     @OneToMany(mappedBy = "organizador")
     List<Evento> eventosOrganizados;
+
+
+    public Usuario(UsuarioRequestDTO dto){
+        this.setNome(dto.nome());
+        this.setEmail(dto.email());
+        this.setSenha(dto.senha());
+        this.setTelefone(dto.telefone());
+    }
 
 }
